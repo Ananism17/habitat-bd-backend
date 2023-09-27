@@ -12,7 +12,12 @@ use App\Http\Controllers\Api\MailController;
 use App\Http\Controllers\Api\PageController;
 use App\Http\Controllers\Api\SliderImageController;
 
-// Route::get('admin-list',[AdminController::class,'index']);
+
+
+Route::get('/hello', function () {
+    return "Hello, World!";
+});
+
 Route::group(['middleware' => ['api', 'throttle:60,1'], 'prefix' => 'v1/auth'], function ($router) {
     Route::post('login',  [AuthController::class, 'login']);
     Route::post('logout', [AuthController::class, 'logout']);
